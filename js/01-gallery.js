@@ -7,11 +7,13 @@ const itemsMarkup = createGalleryItemsMarkup(galleryItems);
 
 mainGalleryList.insertAdjacentHTML('beforeend', itemsMarkup);
 
+mainGalleryList.addEventListener('click', onImageClick);
+
 function createGalleryItemsMarkup(items) {
     return items.map(({ preview, original, description }) => {
         return `
         <div class="gallery__item">
-            <a class="gallery__link" href="${original}">
+            <a class="gallery__link" href="${original}" onclick="event.preventDefault()">
                 <img
                 class="gallery__image"
                 src="${preview}"
@@ -22,4 +24,14 @@ function createGalleryItemsMarkup(items) {
         </div>
         `;
     }).join('');
+}
+
+function onImageClick(event) {
+    if (event.target.nodeName !== 'IMG') {
+        return;
+    }
+    const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.source}" width="800" height="600">
+    `);
+    instance.show();
 }
