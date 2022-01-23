@@ -22,8 +22,7 @@ function createGalleryItemsMarkup(items) {
                 />
             </a>
         </div>
-        `;
-    }).join('');
+        `}).join('');
 }
 
 function onImageClick(event) {
