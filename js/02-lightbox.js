@@ -11,4 +11,4 @@ const createGalleryItemsMarkup = galleryItems.map(({ preview, original, descript
 
 mainGalleryList.innerHTML = createGalleryItemsMarkup;
 
-let lightbox =  new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, captionPosition: 'bottom', });
+let lightbox =  new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 500, captionPosition: 'top', });
